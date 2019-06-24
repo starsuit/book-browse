@@ -8,5 +8,10 @@
   </head>
   <body>
     <h1>Book Browse</h1>
+    <ul>
+      {% for book in books %}
+      <li>{{ book.volumeInfo.title }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
