@@ -8,10 +8,11 @@
   </head>
   <body>
     <h1>Book Browse</h1>
-    <ul>
-      {% for book in books %}
-      <li>{{ book.volumeInfo.title }}</li>
-      {% endfor %}
-    </ul>
+    <form class="form" action="/books">
+      <label for="form--input-search"
+        >Search for a book:
+        <input type="text" id="form--input-search" />
+      </label>
+    </form>
   </body>
 </html>
