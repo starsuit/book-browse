@@ -18,7 +18,7 @@ def index(request):
 
 def books(request):
 
-    string = 'world'
+    string = request.GET['search']
 
     queries = {'q': string, 'key': key}
 # r seems to be the convention

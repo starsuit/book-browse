@@ -8,10 +8,15 @@
   </head>
   <body>
     <h1>Book Browse</h1>
-    <form class="form" action="/books">
+    <form class="form" action="/books" method="GET">
       <label for="form--input-search"
         >Search for a book:
-        <input type="text" class="form--input" id="form--input-search" />
+        <input
+          type="text"
+          class="form--input"
+          id="form--input-search"
+          name="search"
+        />
       </label>
       <button class="form--button">Search</button>
     </form>
