@@ -8,11 +8,17 @@ import environ
 env = environ.Env()
 env.read_env()  # reading .env file
 
+key = env.str('API_KEY')
+
 
 def index(request):
 
+    return render(request, 'book_browse/index.html', {})
+
+
+def books(request):
+
     string = 'world'
-    key = env.str('API_KEY')
 
     queries = {'q': string, 'key': key}
 # r seems to be the convention
@@ -21,4 +27,4 @@ def index(request):
 
     books = r.json()['items']
 
-    return render(request, 'book_browse/index.html', {'books': books})
+    return render(request, 'book_browse/books.html', {'books': books})
