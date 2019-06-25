@@ -3,6 +3,13 @@ from django.http import HttpRequest
 from django.urls import reverse
 
 
+class ErrorTests(SimpleTestCase):
+
+    def test_missing_status_code(self):
+        response = self.client.get('/nothing')
+        self.assertEquals(response.status_code, 404)
+
+
 class IndexTests(SimpleTestCase):
 
     def test_index_status_code(self):
@@ -56,3 +63,8 @@ class BookListTests(SimpleTestCase):
         response = self.client.get('/books/?search=hello+world')
         self.assertContains(
             response, '<ul>')
+
+    def test_books_with_no_results_displays_sorry_message(self):
+        response = self.client.get('/books/?search=fghdskfhksdfhsk')
+        self.assertContains(
+            response, 'Sorry')
