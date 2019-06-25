@@ -62,7 +62,7 @@ class BookListTests(SimpleTestCase):
     def test_books_with_data_renders_list(self):
         response = self.client.get('/books/?search=hello+world')
         self.assertContains(
-            response, '<ul>')
+            response, '<ul')
 
     def test_books_with_no_results_displays_sorry_message(self):
         response = self.client.get('/books/?search=fghdskfhksdfhsk')
