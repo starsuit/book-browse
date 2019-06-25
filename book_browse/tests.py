@@ -52,3 +52,7 @@ class BookListTests(SimpleTestCase):
         self.assertNotContains(
             response, 'Blah blah blah, incorrect text blah')
 
+    def test_books_with_data_renders_list(self):
+        response = self.client.get('/books/?search=hello+world')
+        self.assertContains(
+            response, '<ul>')
