@@ -18,13 +18,31 @@ def index(request):
 
 def books(request):
 
-    string = request.GET['search']
+    search = request.GET.get('search', False)
 
-    queries = {'q': string, 'key': key}
-# r seems to be the convention
+    queries = {'q': search, 'key': key}
     r = requests.get(
         'https://www.googleapis.com/books/v1/volumes', params=queries)
 
+    data = r.json()
+
     books = r.json()['items']
+    fetched_books = data['items']
+    books = []
+    for book in fetched_books:
+        book_dict = {
+            'title': book['volumeInfo']['title'],
+            'image': book['volumeInfo']['imageLinks']['thumbnail'],
+            'authors': ", ".join(book['volumeInfo']['authors']) if 'authors' in book['volumeInfo'] else "",
+            'publisher': book['volumeInfo']['publisher'] if 'publisher' in book['volumeInfo'] else "",
+            'info': book['volumeInfo']['infoLink'],
+            'popularity': book['volumeInfo']['ratingsCount'] if 'ratingsCount' in book['volumeInfo'] else 0
+        }
+        books.append(book_dict)
+
+    def sort_by_pop(e):
+        return e['popularity']
+
+    books.sort(reverse=True, key=sort_by_pop)
 
     return render(request, 'book_browse/books.html', {'books': books})
