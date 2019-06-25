@@ -26,7 +26,9 @@ def books(request):
 
     data = r.json()
 
-    books = r.json()['items']
+    if not 'items' in data:
+        return render(request, 'book_browse/books.html', {})
+
     fetched_books = data['items']
     books = []
     for book in fetched_books:
