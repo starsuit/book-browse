@@ -5,20 +5,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Book Browse</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 1.25rem;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        color: hsl(220, 20%, 98%);
+        background-color: hsl(220, 20%, 20%);
+        background-image: linear-gradient(
+          135deg,
+          hsl(220, 30%, 12%),
+          hsl(220, 40%, 8%)
+        );
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        font-weight: 900;
+      }
+
+      label,
+      input,
+      button {
+        display: block;
+        border: 0;
+        background: none;
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+      }
+
+      button::-moz-focus-inner {
+        border: 0;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        font-weight: 900;
+        letter-spacing: 0.3px;
+      }
+
+      .site-header__logo {
+        margin-right: 0.5rem;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        padding: 1.5rem;
+      }
+
+      .form {
+        width: 100%;
+        max-width: 30rem;
+        margin: 0 auto;
+        align-self: center;
+      }
+
+      .field {
+        margin-top: 0.5rem;
+        display: flex;
+        border-radius: 0.25rem;
+        background-color: hsl(220, 30%, 70%);
+        box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5);
+        overflow: hidden;
+        transition: background-color 0.2s;
+      }
+
+      .field:focus-within {
+        background-color: hsl(220, 30%, 92%);
+        box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5),
+          0 2px 12px hsla(220, 10%, 10%, 0.5);
+      }
+
+      .field__input {
+        flex: 1;
+        padding: 0.5rem;
+        color: hsl(220, 20%, 20%);
+      }
+
+      .field:focus-within .field__input {
+        outline: 0; /* only disable input outline if :focus-within works */
+      }
+
+      .field__button {
+        padding: 0.5rem 1rem;
+        color: hsl(220, 20%, 20%);
+        transition: background-color 0.2s;
+      }
+
+      .field__button:hover,
+      .field__button:focus {
+        background-color: hsl(220, 30%, 80%);
+      }
+    </style>
   </head>
   <body>
-    <h1>Book Browse</h1>
-    <form class="form" action="/books" method="GET">
-      <label for="form--input-search"
-        >Search for a book:
-        <input
-          type="text"
-          class="form--input"
-          id="form--input-search"
-          name="search"
-        />
-      </label>
-      <button class="form--button">Search</button>
-    </form>
+    <main class="container">
+      <header class="site-header">
+        <svg
+          class="site-header__logo"
+          viewBox="0 0 32 32"
+          width="32"
+          height="32"
+          fill="none"
+          stroke="currentcolor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="4"
+        >
+          <path
+            d="M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28"
+          ></path>
+        </svg>
+        <h1>Book Browse</h1>
+      </header>
+      <form class="form" action="/books" method="GET">
+        <label for="search">Search for a book</label>
+        <div class="field">
+          <input
+            type="text"
+            class="field__input"
+            id="search"
+            name="search"
+            autofocus
+          />
+          <button class="field__button" aria-label="Search">
+            <svg
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <circle cx="14" cy="14" r="12"></circle>
+              <path d="M23 23 L30 30"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
