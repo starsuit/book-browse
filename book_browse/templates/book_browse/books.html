@@ -7,11 +7,38 @@
     <title>Book Browse</title>
   </head>
   <body>
-    <h1>Book Browse</h1>
-    <ul>
+    <div class="container">
+      <header class="site-header">
+        <h1>Book Browse</h1>
+      </header>
+    {% if books %}
+    <ul class="grid">
       {% for book in books %}
-      <li>{{ book.volumeInfo.title }}</li>
+
+      <li class="card">
+        <h2 class="card__title">
+          <a class="card__link" href="{{ book.info }}">{{ book.title }}</a>
+        </h2>
+        <img
+          class="card__image"
+          width="128"
+          height="190"
+          src="{{ book.image }}"
+          alt="{{ book.title }}"
+        />
+        <div class="card__author">by {{ book.authors }}</div>
+        <div class="card__publisher">{{ book.publisher }}</div>
+      </li>
+
       {% endfor %}
     </ul>
+    {% else %}
+    <div class="error">
+      <h2>
+        Sorry, no books
+      </h2>
+    </div>
+
+    {% endif %}
   </body>
 </html>
