@@ -6,7 +6,7 @@ This has been quite the challenge for me - I have little more than beginner Pyth
 
 ## My thought process
 
-### Why I chose Django:
+### Why I chose Django
 
 I do not know much Python, and as I had a short timescale in which to build this project I did not feel comfortable building a server in 'vanilla' Python. I don't understand the language well enough to know when I would be making fundamental mistakes that would leave the site vulnerable or just broken. 
 
