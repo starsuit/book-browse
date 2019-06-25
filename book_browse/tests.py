@@ -44,10 +44,11 @@ class BookListTests(SimpleTestCase):
         self.assertTemplateUsed(response, 'book_browse/books.html')
 
     def test_books_renders_html(self):
-        response = self.client.get('/books/')
+        response = self.client.get('/books/?search=hello+world')
         self.assertContains(response, '<h1>Book Browse</h1>')
 
     def test_books_does_not_contain_incorrect_html(self):
-        response = self.client.get('/books/')
+        response = self.client.get('/books/?search=hello+world')
         self.assertNotContains(
             response, 'Blah blah blah, incorrect text blah')
+
