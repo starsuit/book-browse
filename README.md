@@ -20,7 +20,7 @@ I've written a few tests with the inbuilt Django testing library. There seem to 
 
 ### BEM
 
-I've used the [http://getbem.com/](BEM) class naming convention to style my CSS.   
+I've used the [BEM](http://getbem.com/) class naming convention to style my CSS.   
 
 ## Features I'd like to add
 
