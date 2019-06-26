@@ -4,6 +4,32 @@ A Django app which uses the Google Books API to allow a user search for and see 
 
 This has been quite the challenge for me - I have little more than beginner Python, and have never used it for the web. I've also never written a Django app before, so this has been a huge learning curve!
 
+## Running locally
+
+To install:
+
+* clone this repo
+* in your terminal, run:
+  
+``` sh
+> brew install python3 #if you don't already have python3
+> python3 -m pip install -r requirements.txt
+```
+
+To run locally:
+
+  ``` sh
+  > python3 manage.py runserver
+  ```
+
+To test:
+
+  ``` sh
+  > python3 manage.py test
+  ```
+
+I've provided a .env.example file in the bookbrowse folder - to use the app you will need to rename this to .env and add your own environment variables.
+
 ## My thought process
 
 ### Why I chose Django
