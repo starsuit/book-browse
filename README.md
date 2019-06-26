@@ -14,13 +14,16 @@ I soon came across Django as an option - having little idea of how I would get a
 
 Although I feel like a spent a large amount of my time on DevOps and getting the framework deployed, Django takes care of a lot of the lower level processes that I did not feel comfortable writing myself, and allowed me to write the part I did understand: making an API call and templating the result on the page.
 
+In retrospective, I wish I had spent more time researching other framework options. Django is well-documented, but it contained features I didn't need like a database and as a fairly opinionated framework, I found that I had to jump through a lot of hoops to get the app deployed.
+
 ### Testing
 
 I've written a few tests with the inbuilt Django testing library. There seem to be many different options for testing and I would like to learn more about them, but for now I've had to settle for some simple test cases (literally, I used the `SimpleTestCase` subclass...). These tests check my util function works, my url paths work and my html templates render correctly. 
 
 ### BEM
 
-I've used the [BEM](http://getbem.com/) class naming convention to style my CSS.   
+I've used the [BEM](http://getbem.com/) class naming convention to style my CSS.  
+
 
 ## Features I'd like to add
 
