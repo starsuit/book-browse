@@ -1,6 +1,6 @@
 # Book Browse
 
-A Django app which uses the Google Books API to allow a user search for and see information about books.
+A Django app which uses the Google Books API to allow a to user search for and see information about books.
 
 This has been quite the challenge for me - I have little more than beginner Python, and have never used it for the web. I've also never written a Django app before, so this has been a huge learning curve!
 
