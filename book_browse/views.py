@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
 import requests
 from string import Template
 import environ
+from .forms import BookSearch
 
 env = environ.Env()
 env.read_env()  # reading .env file
@@ -12,8 +12,8 @@ key = env.str('API_KEY')
 
 
 def index(request):
-
-    return render(request, 'book_browse/index.html', {})
+    form = BookSearch()
+    return render(request, 'book_browse/index.html', {'form': form})
 
 
 def books(request):

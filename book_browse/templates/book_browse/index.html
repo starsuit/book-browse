@@ -29,16 +29,14 @@
         </svg>
         <h1>Book Browse</h1>
       </header>
-      <form class="form" action="/books" method="GET">
-        <label for="search">Search for a book</label>
+      <form class="form" action="{% url 'books' %}" method="GET">
+        {% csrf_token %}
+
+        <label for="{{ form.search_input.id_for_label }}">
+          Search for a book</label
+        >
         <div class="field">
-          <input
-            type="text"
-            class="field__input"
-            id="search"
-            name="search"
-            autofocus
-          />
+          {{ form.search }}
           <button class="field__button" aria-label="Search">
             <svg
               viewBox="0 0 32 32"
