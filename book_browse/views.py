@@ -34,7 +34,7 @@ def books(request):
     for book in fetched_books:
         book_dict = {
             'title': book['volumeInfo']['title'],
-            'image': book['volumeInfo']['imageLinks']['thumbnail'],
+            'image': book['volumeInfo']['imageLinks']['thumbnail'] if 'imageLinks' in book['volumeInfo'] else "",
             'authors': ", ".join(book['volumeInfo']['authors']) if 'authors' in book['volumeInfo'] else "",
             'publisher': book['volumeInfo']['publisher'] if 'publisher' in book['volumeInfo'] else "",
             'info': book['volumeInfo']['infoLink'],
