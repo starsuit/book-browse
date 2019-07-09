@@ -22,7 +22,7 @@ def books(request):
     search = author if request.GET.get(
         'search', False) == "" else request.GET.get('search', False)
 
-    if search == False and author == False:
+    if (search == False and author == False) or (search == "" and author == ""):
         return redirect('/')
 
     queries = {'q': search, 'inauthor': author, 'key': key}
