@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
 from string import Template
 import environ
@@ -19,6 +19,8 @@ def index(request):
 def books(request):
 
     search = request.GET.get('search', False)
+    if search == False:
+        return redirect('/')
 
     queries = {'q': search, 'key': key}
     r = requests.get(
