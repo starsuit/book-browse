@@ -32,11 +32,30 @@
       <form class="form" action="{% url 'books' %}" method="GET">
         {% csrf_token %}
 
-        <label for="{{ form.search_input.id_for_label }}">
-          Search for a book</label
-        >
+        <label for="{{ form.search.id_for_label }}"> Search for a book</label>
         <div class="field">
           {{ form.search }}
+          <button class="field__button" aria-label="Search">
+            <svg
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <circle cx="14" cy="14" r="12"></circle>
+              <path d="M23 23 L30 30"></path>
+            </svg>
+          </button>
+        </div>
+        <label for="{{ form.author.id_for_label }}">
+          Search for an author</label
+        >
+        <div class="field">
+          {{ form.author }}
           <button class="field__button" aria-label="Search">
             <svg
               viewBox="0 0 32 32"

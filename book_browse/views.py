@@ -18,14 +18,18 @@ def index(request):
 
 def books(request):
 
-    search = request.GET.get('search', False)
-    if search == False:
+    author = request.GET.get('author', False)
+    search = author if request.GET.get(
+        'search', False) == "" else request.GET.get('search', False)
+
+    if search == False and author == False:
         return redirect('/')
 
-    queries = {'q': search, 'key': key}
+    queries = {'q': search, 'inauthor': author, 'key': key}
+    print(queries)
     r = requests.get(
         'https://www.googleapis.com/books/v1/volumes', params=queries)
-
+    print(r)
     if r.status_code != 200:
         return render(request, 'book_browse/books.html', {'message': 'Sorry, there seems to be an issue with Google Books right now.'})
 
