@@ -53,7 +53,8 @@ I've used the [BEM](http://getbem.com/) class naming convention to style my CSS.
 
 ## Features I'd like to add
 
-- [ ] Search by author / genre
+- [x] Search by author
+- [ ] Search by genre
 - [ ] Filter / sort functionality
 - [ ] 'Favourite' books
 - [ ] Autocomplete on search
