@@ -26,10 +26,13 @@ def books(request):
     r = requests.get(
         'https://www.googleapis.com/books/v1/volumes', params=queries)
 
+    if r.status_code != 200:
+        return render(request, 'book_browse/books.html', {'message': 'Sorry, there seems to be an issue with Google Books right now.'})
+
     data = r.json()
 
     if not 'items' in data:
-        return render(request, 'book_browse/books.html', {})
+        return render(request, 'book_browse/books.html', {'message': 'Sorry, no books match that search term.'})
 
     fetched_books = data['items']
     books = []
